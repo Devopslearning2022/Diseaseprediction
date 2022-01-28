@@ -6,6 +6,6 @@ COPY . .
 
 RUN pip install pystrich
 
-EXPOSE 5000
+EXPOSE 8081
 
 CMD [ "python", "./disease_prediction.py" ]
