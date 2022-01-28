@@ -1,11 +1,15 @@
-FROM python:3
+FROM python:latest
 
-ADD disease_prediction.py /
+COPY ./requirements.txt /requirements.txt
 
-COPY . .
+WORKDIR /
 
-RUN pip install pystrich
+RUN pip3 install -r requirements.txt
 
-EXPOSE 8081
+COPY . /
 
-CMD [ "python", "./disease_prediction.py" ]
+EXPOSE 5000
+
+ENTRYPOINT ["python3"]
+
+CMD ["disease_prediction.py"]
