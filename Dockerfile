@@ -1,11 +1,11 @@
-FROM python:3.7
+FROM python:3
 
-WORKDIR /opt/app
+ADD disease_prediction.py /
 
 COPY . .
 
-RUN pip install --no-cache-dir -r requirements-prod.txt
+RUN pip install pystrich
 
 EXPOSE 5000
 
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD [ "python", "./disease_prediction.py" ]
